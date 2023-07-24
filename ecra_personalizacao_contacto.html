@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<script src="time.js"></script>
+<script src="funcoes.js"></script>
+<link rel="stylesheet" href="time.css">
+
+<style>
+
+  @font-face {
+      font-family: AndroidFont;
+      src: url(droid-sans.regular.ttf);
+  }
+
+  body{
+    margin: 0;
+    margin-top: 0;
+  }
+
+  #arrow {
+    border-bottom: 0.7px solid grey;
+  }
+
+  #texto {
+    padding-left: 10px;
+    padding-right: 15px;
+    font-size: 13px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-family:AndroidFont;
+    border-bottom: 0.7px solid grey;
+  }
+
+
+  #txt {
+    margin: 0px;
+  }
+
+  h1{
+    font-size: 13px;
+  }
+
+   html {overflow-y: hidden;  overflow-x: hidden; }
+
+
+  /* width */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+   table  {
+        font-size: 12px;
+        margin-left:auto;
+        margin-right:auto;
+
+        overflow-y:scroll;
+        overflow-x: hidden;
+        height:93px;
+
+        align:middle;
+        display:block;
+
+        border-collapse: collapse;
+
+        position: absolute;
+        top: 22px;
+        left:8px;
+      }
+
+      td:nth-child(2) {
+        align:right;
+        padding-left: 5px;
+      }​
+
+      td:nth-child(1) {
+        align:right;
+        padding-right: 20px;
+      }​
+
+</style>
+
+<script>
+function titulo() {
+  document.getElementById("nameTitle").innerHTML = JSON.parse(localStorage.getItem("selectedName"));
+}
+
+function ver() {
+  if (getLocation(JSON.parse(localStorage.getItem("selectedName"))) == 0)
+    location.assign("ecra_localizacao_cancel.html");
+  else
+    location.assign('ecra_mapa_amigos.html');
+}
+
+
+</script>
+</head>
+
+<body onload="titulo(); addSenha(); senhaFlag('ecra_personalizacao_contacto'); senhaAlert();">
+
+<h1 align="center" id="nameTitle" style="height:19px; width:109px;">
+ ​
+</h1>
+
+<table height="130px" width="110px" id= "menuFestival">
+
+  <tr>
+    <td onclick="location.assign('ecra_chat.html');" id = "texto">Ver <p id="txt">Mensagens</p> </td>
+  </tr>
+
+
+  <tr>
+    <td onclick="ver()" id= "texto">Ver <p id="txt"> Localização </p> </td>
+  </tr>
+
+  <tr>
+    <td onclick="location.assign('ecra_confirmacao_remocao.html');" id= "texto">Remover <p id="txt">amigo </p> </td>
+  </tr>
+
+
+</table>
+
+</body>
+</html>

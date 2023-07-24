@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<link rel="stylesheet" href="time.css">
+<script src="data.js"></script>
+<script src="funcoes.js"></script>
+<script src="time.js"></script>
+
+<style>
+
+  @font-face {
+      font-family: AndroidFont;
+      src: url(droid-sans.regular.ttf);
+  }
+
+  body{
+      margin: 0;
+      margin-top: 0;
+  }
+
+  html { overflow-y: hidden; overflow-x: hidden; }
+
+  ::-webkit-scrollbar { 
+    display: none; 
+  }
+
+  #bands {
+    overflow-y:scroll;
+    overflow-x: hidden;
+    height:100px; 
+    width:135px;
+    padding-left: 6px;
+  }
+
+
+  #band {
+    font-size: 13px;
+    font-family:AndroidFont;
+    padding-left:4px;
+    padding-bottom: 0px;
+    margin: 0px;
+    font-weight: bold; 
+    padding-top: 6px;
+  }
+
+  #rest {
+    margin: 0px;
+    padding-top: 0px;
+    font-size: 11px;
+    font-family:AndroidFont;
+    padding-left:6px;
+    display: inline-block;
+  }
+
+  #seta {
+    padding-left: 36px; 
+  }
+
+  #stage {
+    margin: 0px;
+    font-size: 11px;
+    font-family:AndroidFont;
+    padding-left:6px;
+    padding-bottom:6px;
+    border-bottom: 0.7px solid grey;
+  }
+
+</style>
+
+</head>
+
+<body onload="startTime(); displaySenhas(); update(); addSenha(); senhaFlag('ecra_senhas'); senhaAlert();">
+
+<h1 style="height:17px; width:109px;">
+<span class="left">Senhas</span><span class="right" id="titulo"></span>​
+</h1>
+
+<div id="bands" style="width:104px;">
+</div>
+
+<tr >
+    <td  > <div id="ultimo"> oooo </div> <div id="ultimo"> oooo</div> </td>
+    <td > </td>
+</tr>
+
+</body>
+</html>

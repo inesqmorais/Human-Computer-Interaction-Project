@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<link rel="stylesheet" href="time.css">
+<script src="time.js"></script>
+<script src="funcoes.js"></script>
+
+<style>
+
+  @font-face {
+      font-family: AndroidFont;
+      src: url(droid-sans.regular.ttf);
+  }
+
+  body{
+      margin: 0;
+      margin-top: 0;
+  }
+
+  html { overflow-y: hidden; }
+  ::-webkit-scrollbar { 
+    display: none; 
+  }
+
+  .scrollable {
+    height: 101px;
+    overflow-y: auto;
+    overflow-x: auto;
+  }
+
+  #target0{  
+    position: relative;
+    top: 30px;
+    left: 30px;
+    visibility: visible;
+  }
+
+  #target2{  
+    position: relative;
+    top: 60px;
+    left: 150px;
+    visibility: hidden;
+  }
+
+  #target3{  
+    position: relative;
+    top: 130px;
+    left: 50px;
+    visibility: hidden;
+  }
+
+  #target4{  
+    position: relative;
+    top: 60px;
+    left: 15px;
+    visibility: hidden;
+  }
+
+  #target5{  
+    position: relative;
+    top: 100px;
+    left: 80px;
+    visibility: hidden;
+  }
+
+  #target6{  
+    position: relative;
+    top: 40px;
+    left: 165px;
+    visibility: hidden;
+  }
+
+  #target7{  
+    position: relative;
+    top: 30px;
+    left: 140px;
+    visibility: hidden;
+  }
+
+  #target8{  
+    position: relative;
+    top: 120px;
+    left: 140px;
+    visibility: hidden;
+  }
+
+  #back {
+  	position: absolute;
+  	top:2px;
+  	left: 2px;
+  }
+
+</style>
+
+<script>
+  var identificador = getId(JSON.parse(localStorage.getItem("selectedName")));
+  
+  function targetOn() {
+    document.getElementById("target"+identificador).style.visibility = "visible";
+  }
+
+  function targetOff() {
+    document.getElementById("target"+identificador).style.visibility = "hidden";
+  }
+
+  function name() {
+    document.getElementById("nameTitle").innerHTML = JSON.parse(localStorage.getItem("selectedName"));
+  }
+
+  function escolher() {
+    var elmnt = document.getElementById("mapa");
+    if (identificador == 2) {
+      elmnt.scrollLeft = 100;
+      elmnt.scrollTop = 30;
+    }
+    else if (identificador == 5) {
+      elmnt.scrollLeft = 40;
+      elmnt.scrollTop = 60;
+    }
+    else if (identificador == 6) {
+      elmnt.scrollLeft = 115;
+    }
+    else if (identificador == 7) {
+      elmnt.scrollLeft = 90;
+    }
+    else if (identificador == 8) {
+      elmnt.scrollLeft = 90;
+      elmnt.scrollTop = 70;
+    }
+  }
+
+</script>
+
+</head>
+
+<body onload="escolher(); name(); targetOn();" onunload="targetOff();">
+
+<h1 id="nameTitle" style="height:17px; width:109px;" align="center">
+</h1>
+
+<div id="mapa" class="scrollable">
+  <div style="height:0px; width:0px;"><img id="target0" src="here1.png" style="height:30px; width:30px;"></div>
+  <div style="height:0px; width:0px;"><img id="target2" src="pin1.png" style="height:30px; width:30px;"></div>
+  <div style="height:0px; width:0px;"><img id="target3" src="pin2.png" style="height:30px; width:30px;"></div>
+  <div style="height:0px; width:0px;"><img id="target4" src="pin3.png" style="height:30px; width:30px;"></div>
+  <div style="height:0px; width:0px;"><img id="target5" src="pin4.png" style="height:30px; width:30px;"></div>
+  <div style="height:0px; width:0px;"><img id="target6" src="pin5.png" style="height:30px; width:30px;"></div>
+  <div style="height:0px; width:0px;"><img id="target7" src="pin6.png" style="height:30px; width:30px;"></div>
+  <div style="height:0px; width:0px;"><img id="target8" src="pin7.png" style="height:30px; width:30px;"></div>
+  <img src="mapa3.jpg" usemap="#Map">
+</div>
+
+</body>
+</html>

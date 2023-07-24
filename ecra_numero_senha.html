@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<script src="funcoes.js"></script>
+
+<style>
+
+  @font-face {
+      font-family: AndroidFont;
+      src: url(droid-sans.regular.ttf);
+  }
+
+  body{
+      margin: 0;
+      margin-top: 0;
+  }
+
+   html { overflow-y: hidden; overflow-x: hidden; }
+
+  ::-webkit-scrollbar { 
+    display: none; 
+  }
+
+  #botao{
+    width:30px;
+    height:18px;
+    border:0.7px solid black;
+    font-size: 14px;
+    font-family: AndroidFont;
+    position:absolute;
+
+    bottom:3px;
+    right:43px;
+
+  }
+   #imagem{
+    margin: 0px;
+   }
+
+  #texto {
+    margin: 0px;
+    padding-top: 0px;
+    font-size: 13px;
+    font-family: AndroidFont;
+    padding-bottom: 6px;
+  }
+
+  #texto1 {
+    margin: 0px;    
+    font-size: 12px;
+    font-family: AndroidFont;
+    padding-bottom: 2px;
+  }
+
+  #texto2 {
+    margin: 0px;    
+    font-size: 12px;
+    font-family: AndroidFont;
+    padding-bottom: 0px;
+  }
+
+    #texto3 {
+    margin: 0px;    
+    font-size: 12px;
+    font-family: AndroidFont;
+    padding-bottom: 10px;
+  }
+
+
+</style>
+
+<script>
+  
+  function anterior() {
+    history.back();
+  }
+
+  function rouloteName() {
+    document.getElementById('texto3').innerHTML +=  localStorage.getItem(localStorage.getItem('rouloteName'));
+  }
+
+</script>
+
+</head>
+
+<body onload="rouloteName();">
+
+<div id="texto" align="center">
+  <img id="imagem" src="info.png" height="44" width="44">
+  <p id="texto1">Pedido efectuado</p>
+  <p id="texto2"> Número da sua  </p>
+  <p id="texto3"> senha: </p>
+
+  <div id="botao" onclick="anterior()"> OK </button>
+</div>
+
+<!--<div id="botao" align="center" onclick="anterior()"> OK </button>-->
+
+</body>
+</html>

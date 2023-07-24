@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<link rel="stylesheet" href="time.css">
+<script src="time.js"></script>
+<script src="funcoes.js"></script>
+
+<style>
+
+  @font-face {
+      font-family: AndroidFont;
+      src: url(droid-sans.regular.ttf);
+  }
+
+  body{
+      margin: 0;
+      margin-top: 0;
+  }
+
+  html { overflow-y: hidden; }
+  ::-webkit-scrollbar { 
+    display: none; 
+  }
+
+  .scrollable {
+    height: 101px;
+    overflow-y: auto;
+    overflow-x: auto;
+  }
+
+  #target0{  
+    position: relative;
+    top: 30px;
+    left: 30px;
+    visibility: visible;
+  }
+
+  #target1{  
+    position: relative;
+    top: 128px;
+    left: 170px;
+    visibility: hidden;
+  }
+
+  #target2{  
+    position: relative;
+    top: 0px;
+    left: 200px;
+    visibility: hidden;
+  }
+
+  #target3{  
+    position: relative;
+    top: 124px;
+    left: 30px;
+    visibility: hidden;
+  }
+
+  #target4{  
+    position: relative;
+    top: 0px;
+    left: 0px;
+    visibility: hidden;
+  }
+
+  #target5{  
+    position: relative;
+    top: 0px;
+    left: 135px;
+    visibility: hidden;
+  }
+
+  #target6{  
+    position: relative;
+    top: 74px;
+    left: 132px;
+    visibility: hidden;
+  }
+
+  #back {
+  	position: absolute;
+  	top:2px;
+  	left: 2px;
+  }
+
+</style>
+
+<script>
+  function unspace() {
+    var name = localStorage.getItem('rouloteName');
+    var elmnt = document.getElementById("mapa");
+    if (name === "Eat it") {
+      sessionStorage.setItem('target', "target1");
+      elmnt.scrollLeft = 115;
+      elmnt.scrollTop = 70;
+    }
+    else if (name === "Joshua") {
+      sessionStorage.setItem('target', "target2");
+      elmnt.scrollLeft = 115;
+    }
+    else if (name === "O Paiva") {
+      sessionStorage.setItem('target', "target3");
+      elmnt.scrollTop = 70;
+    }
+    else if (name === "Rock Bar")
+      sessionStorage.setItem('target', "target4");
+    else if (name === "Jazz Place") {
+      sessionStorage.setItem('target', "target5");
+      elmnt.scrollLeft = 90;
+    }
+    else {
+      sessionStorage.setItem('target', "target6");
+      elmnt.scrollLeft = 80;
+      elmnt.scrollTop = 50;
+    }
+  }
+
+  function targetOn() {
+    document.getElementById(sessionStorage.getItem('target')).style.visibility = "visible";
+  }
+
+  function targetOff() {
+    document.getElementById(sessionStorage.getItem('target')).style.visibility = "hidden";
+  }
+
+  function name() {
+    document.getElementById("nameTitle").innerHTML = localStorage.getItem('rouloteName');
+  }
+
+</script>
+
+</head>
+
+<body onload="unspace(); name(); targetOn();" onunload="targetOff();">
+
+<h1 id="nameTitle" style="height:17px; width:109px;" align="center">
+</h1>
+
+
+<div id="mapa" class="scrollable">
+  <div style="height:0px; width:0px;"><img id="target0" src="here1.png" style="height:30px; width:30px;"></div>
+  <div style="height:0px; width:0px;"><img id="target1" src="pinRes.png" style="height:30px; width:30px;"></div>
+  <div style="height:0px; width:0px;"><img id="target2" src="pinRes.png" style="height:30px; width:30px;"></div>
+  <div style="height:0px; width:0px;"><img id="target3" src="pinRes.png" style="height:30px; width:30px;"></div>
+  <div style="height:0px; width:0px;"><img id="target4" src="pinRes.png" style="height:30px; width:30px;"></div>
+  <div style="height:0px; width:0px;"><img id="target5" src="pinRes.png" style="height:30px; width:30px;"></div>
+  <div style="height:0px; width:0px;"><img id="target6" src="pinRes.png" style="height:30px; width:30px;"></div>
+  <img src="mapa3.jpg" usemap="#Map">
+</div>
+
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<link rel="stylesheet" href="time.css">
+<script src="time.js"></script>
+<script src="data.js"></script>
+<script src="funcoes.js"></script>
+
+<style>
+
+  @font-face {
+      font-family: AndroidFont;
+      src: url(droid-sans.regular.ttf);
+  }
+
+    body{
+        margin: 0;
+        margin-top: 0;
+    }
+
+    html { overflow-y: hidden; overflow-x: hidden;  }
+
+    #MainStage {
+      font-family:AndroidFont;
+      font-weight: bold;
+    }
+
+    #seta{
+      position: absolute;
+      top: 27px;
+      left:85px;
+      bottom: 90;
+      right: 10px;
+      height:17px;
+      width: 17px;
+    }
+
+    #palco {
+      height: 23px;
+      width: 117px;
+      margin-bottom: 0px;
+      margin-top: 0px;
+      font-size: 14px;
+      align: right;
+      font-family:AndroidFont;
+      padding-top: 7px;
+      padding-left: 14px;
+      color:black;
+      background-color:rgb(2, 115, 214);
+    }
+
+       table  {
+        font-size: 12px;
+        margin-left:auto;
+        margin-right:auto;
+
+        overflow-y:scroll;
+        overflow-x: hidden;
+        height:100px;
+        display:block;
+
+        border-collapse: collapse;
+
+        position: absolute;
+        top: 50px;
+      }
+
+      td {
+
+        padding-top: .5em;
+        padding-bottom: .5em;
+        padding-left: 15px;
+        border-bottom: 0.7px solid grey;
+
+      }
+
+      #Banda1{
+        font-size:13px;
+        color: color;
+      }
+
+      #hora1{
+        font-size:11px;
+        padding-left: 8px;
+        padding-top: 2px;
+        width: 90px;
+        color:black;
+      }
+
+      #Banda2{
+        font-size:13px;
+        color: color;
+      }
+
+      #hora2{
+        font-size:11px;
+        padding-left: 8px;
+        padding-top: 2px;
+        width: 90px;
+        color:black;
+      }
+
+      #Banda3{
+        font-size:13px;
+        color: color;
+      }
+
+      #hora3{
+        font-size:11px;
+        padding-left: 8px;
+        padding-top: 2px;
+        width: 90px;
+        color:black;
+      }
+
+      #Banda4{
+        font-size:13px;
+        color: color;
+      }
+
+      #hora4{
+        font-size:11px;
+        padding-left: 8px;
+        padding-top: 2px;
+        width: 90px;
+        color:black;
+      }
+
+      #cross1{
+        position: absolute;
+        top:12px;
+        left:84px;
+      }
+
+      #cross2{
+        position: absolute;
+        top:56px;
+        left:84px;
+      }
+
+      #cross3{
+        position: absolute;
+        top:99px;
+        left:84px;
+      }
+
+      #cross4{
+        position: absolute;
+        top:141px;
+        left:84px;
+      }
+
+      #ultimo{
+        margin: 0px;
+        height:10px;
+      }
+
+</style>
+
+<script>
+
+
+</script>
+
+</head>
+
+<body onload="startTime(); displayMainStageSchedule2('Main Stage'); update();">
+
+<h1 style="height:17px; width:109px;">
+<span class="left">Dia 2</span><span class="right" id="titulo"></span>​
+</h1>
+
+<div id="palco"> Main Stage  <img id="seta" src="chevronL.png" onclick="changeSource('ecra_horarios_port_stage2.html')"> </div>
+
+<table height="200px" width="135px" id= "MainStage">
+
+  <tr onclick="selectBand('The Cult'); selectScreen(sessionStorage.getItem('The CultC'))">
+    <td> <div id= "Banda1"> </div> <div id= "hora1"> </div></td>
+    <td> <img id="cross1" src="bell.png"  onload="this.onload=this.src=sessionStorage.getItem('The CultC');" height="16" width="16"></td>
+  </tr>
+
+  <tr onclick="selectBand('The Kills'); selectScreen(sessionStorage.getItem('The KillsC'))">
+    <td> <div id= "Banda2"> </div> <div id= "hora2"> </div></td>
+    <td> <img id="cross2" src="bell.png"  onload="this.onload=this.src=sessionStorage.getItem('The KillsC');" height="16" width="16"></td>
+  </tr>
+
+  <tr onclick="selectBand('U2'); selectScreen(sessionStorage.getItem('U2C'))">
+    <td> <div id= "Banda3"> </div> <div id= "hora3"> </div></td>
+    <td> <img id="cross3" src="bell.png"  onload="this.onload=this.src=sessionStorage.getItem('U2C');" height="16" width="16"></td>
+  </tr>
+
+  <tr onclick="selectBand('KISS'); selectScreen(sessionStorage.getItem('KISSC'))">
+    <td> <div id= "Banda4"> </div> <div id= "hora4"> </div></td>
+    <td> <img id="cross4" src="bell.png"  onload="this.onload=this.src=sessionStorage.getItem('KISSC');" height="16" width="16"></td>
+  </tr>
+
+  <tr >
+    <td> <div id="ultimo"></div> <div id="ultimo"></div> </td>
+  </tr>
+</table>
+
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<link rel="stylesheet" href="time.css">
+<script src="time.js"></script>
+<script src="funcoes.js"></script>
+
+<style>
+
+  @font-face {
+      font-family: AndroidFont;
+      src: url(droid-sans.regular.ttf);
+  }
+
+  body{
+      margin: 0;
+      margin-top: 0;
+  }
+
+  html { overflow-x: hidden; }
+
+ /* width */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+  h2{
+    font-size: 15px;
+    font-family:AndroidFont;
+    padding-left: 15px;
+  }
+
+  h1{
+    font-size: 13px;
+  
+  }
+
+  .scrollable {
+    height: 100px; /* or any value */
+    overflow-y: auto;
+    overflow-x: auto;
+  }
+
+  #seta{
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    height:18px;
+    width: 18px;
+  }
+
+ #friend1{
+    padding-left: 9.9px;
+    height: 20px;
+    width: 20px;
+  }
+
+  #friend2{
+    padding-left: 9.9px;
+    height: 20px;
+    width: 20px;
+  }
+
+   #friend3{
+    padding-left: 9.9px;
+    height: 20px;
+    width: 20px;
+  }
+
+  #friend4{
+    padding-left: 9.9px;
+    height: 20px;
+    width: 20px;
+  }
+
+  #friend5{
+    padding-left: 9.9px;
+    height: 20px;
+    width: 20px;
+  }
+
+   #friend6{
+    padding-left: 9.9px;
+    height: 20px;
+    width: 20px;
+  }
+
+  #friend7{
+    padding-left: 9.9px;
+    height: 20px;
+    width: 20px;
+  }
+
+  #friend8{
+    padding-left: 9.9px;
+    height: 20px;
+    width: 20px;
+  }
+
+
+  #localR{
+    padding-left: 12px;
+    height: 20px;
+    width: 20px;
+  }
+
+  #localizacao {
+    padding-left: 16px;
+  }
+
+  #friendsList {
+    overflow-y:auto;
+    overflow-x: hidden;
+    height:100px; 
+    width:135px;
+    padding-left: 6px;
+  }
+
+  #botao{
+    width:30px;
+    height:18px;
+    border:0.7px solid black;
+    font-size: 14px;
+    font-family:AndroidFont;
+    position:absolute;
+    top: 96px;
+    right:43px;
+  }
+
+  #Eu {
+    padding-left: 49px;
+  }
+  #Manuel {
+    padding-left: 15px;
+  }
+
+  #Maria {
+    padding-left: 27px;    
+  }
+
+  #Pedro {
+    padding-left: 26px;
+  }
+
+  #Joana {
+    padding-left: 29px;
+  }
+
+  #Ana {
+    padding-left: 40px;
+  }
+
+  #Sofia {
+    padding-left: 33px;
+  }
+
+  #Filipe {
+    padding-left: 30px;
+  }
+
+</style>
+
+<script>
+function changeImage(name,color, id, colorChange) {
+    var image = document.getElementById(id);
+    var l = getLocation(name);
+    console.log(location);
+    if(l != 0) {
+      if (image.src.match('Grey.png')) {
+          image.src = colorChange;
+
+
+      } else {
+          image.src = "Grey.png";
+      }
+    }
+
+    else
+      location.assign("ecra_localizacao_cancel.html");
+}
+
+function setSource(color) {
+  return localStorage.getItem(color);
+}
+
+function confirmaSource() {
+  friendsData = JSON.parse(localStorage.getItem("AllFriendsData"));
+  
+  for(let i = 0; i < friendsData.length; i++) {
+    var image = document.getElementById(friendsData[i].name);
+    if(image != null) {
+      if (image.src.match('Grey.png')) {
+        localStorage.setItem(friendsData[i].color,'Grey.png');
+        localStorage.setItem(friendsData[i].target, "hidden");
+      } 
+      else {
+        localStorage.setItem(friendsData[i].color,friendsData[i].image);
+        localStorage.setItem(friendsData[i].target, "visible");
+      }
+    }
+  }
+}
+
+</script>
+
+</head>
+
+<body onload="displayFriendsList();">
+
+<h1 align="center" style="height:19px; width:109px;">
+  Localização </h1>
+
+<div style="height:70px; width:113px;" id = "friendsList">
+</div>
+
+<div align="center" id="nada">
+  <div align="center" id="botao" onclick="history.back(); confirmaSource();"> OK </div>
+</div>
+
+</body>
+</html>

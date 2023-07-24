@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<link rel="stylesheet" href="time.css">
+<script src="time.js"></script>
+<script src="data.js"></script>
+<script src="funcoes.js"></script>
+
+<style>
+
+  @font-face {
+      font-family: AndroidFont;
+      src: url(droid-sans.regular.ttf);
+  }
+
+    body{
+        margin: 0;
+        margin-top: 0;
+    }
+
+    html { overflow-y: hidden; overflow-x: hidden;  }
+
+    #MainStage {
+      font-family:AndroidFont;
+      font-weight: bold;
+    }
+
+    #seta{
+      position: absolute;
+      top: 27px;
+      left:85px;
+      bottom: 90;
+      right: 10px;
+      height:17px;
+      width: 17px;
+    }
+
+    #palco {
+      height: 23px;
+      width: 117px;
+      margin-bottom: 0px;
+      margin-top: 0px;
+      font-size: 14px;
+      align: right;
+      font-family:AndroidFont;
+      padding-top: 7px;
+      padding-left: 14px;
+      color:black;
+      background-color:rgb(2, 115, 214);
+    }
+
+       table  {
+        font-size: 12px;
+        margin-left:auto;
+        margin-right:auto;
+
+        overflow-y:scroll;
+        overflow-x: hidden;
+       
+        display:block;
+
+        border-collapse: collapse;
+
+        position: absolute;
+        top: 20px;
+      }
+
+      td {
+
+        padding-top: .5em;
+        padding-bottom: .5em;
+        padding-left: 13px;
+        border-bottom: 0.7px solid grey;
+
+      }
+
+      #Roulote1{
+        font-size:13px;
+        color: color;
+      }
+
+      #hora1{
+        font-size:11.5px;
+        padding-left: 4px;
+        padding-top: 3px;
+        width: 90px;
+        color:rgb(170, 36, 23);
+      }
+
+      #Roulote2{
+        font-size:13px;
+        color: color;
+      }
+
+      #hora2{
+        font-size:11.5px;
+        padding-left: 4px;
+        padding-top: 3px;
+        width: 90px;
+        color:rgb(170, 36, 23);
+      }
+
+      #Roulote3{
+        font-size:13px;
+        color: color;
+      }
+
+      #hora3{
+        font-size:11.5px;
+        padding-left: 4px;
+        padding-top: 3px;
+        width: 90px;
+        color:rgb(170, 36, 23);
+      }
+
+      #Banda4{
+        font-size:13px;
+        color: color;
+      }
+
+      #hora4{
+        font-size:11.5px;
+        padding-left: 4px;
+        padding-top: 3px;
+        width: 90px;
+        color:rgb(170, 36, 23);
+      }
+
+      #cross1{
+        position: absolute;
+        top:14px;
+        left:85px;
+      }
+
+      #cross2{
+        position: absolute;
+        top:60px;
+        left:85px;
+      }
+
+      #cross3{
+        position: absolute;
+        top:105px;
+        left:85px;
+      }
+
+      #cross4{
+        position: absolute;
+        top:141px;
+        left:84px;
+      }
+
+      #ultimo{
+        margin: 0px;
+        height:10px;
+      }
+
+</style>
+
+<script>
+  function changeFila() {
+
+    var contador = JSON.parse(sessionStorage.countFila);
+
+    if(contador == 3)
+      contador = 0;
+
+    var array1 = ["Fila: 4 min","Fila: 2 min","Fila: 7 min","Fila: 8 min"];
+    var array2 = ["Fila: 2 min","Fila: 1 min"," Fila: 4 min","Fila: 3 min"];
+    var array3 = ["Fila: 4 min", "Fila: 3 min","Fila: 3 min","Fila: 6 min"];
+
+    document.getElementById("hora1").innerHTML = array1[contador];
+    document.getElementById("hora2").innerHTML = array2[contador];
+    document.getElementById("hora3").innerHTML = array3[contador++];
+
+    sessionStorage.setItem("countFila", JSON.stringify(contador));
+}
+
+</script>
+
+</head>
+
+<body onload="startTime(); update(); changeFila(); addSenha(); senhaFlag('ecra_bares'); senhaAlert();">
+
+<h1 style="height:17px; width:109px;">
+<span class="left">Bares</span><span class="right" id="titulo"></span>​
+</h1>
+
+<table height="130px" width="135px" id= "MainStage">
+
+  <tr onclick="selectRestaurate('Rock Bar'); location.assign('ecra_personalizacao_restauracao.html')">
+    <td> <div id= "Roulote1">Rock Bar</div> <div id= "hora1">Fila: 2m </div></td>
+    <td> <img id="cross1" src="ticket.png"  onload="this.onload=this.src=sessionStorage.getItem('Rock BarC');" height="16" width="16"></td>
+  </tr>
+
+  <tr onclick="selectRestaurate('Jazz Place'); location.assign('ecra_personalizacao_restauracao.html')">
+    <td> <div id= "Roulote2">Jazz Place</div> <div id= "hora2">Fila: 5m</div></td>
+    <td> <img id="cross2" src="ticket.png"  onload="this.onload=this.src=sessionStorage.getItem('Jazz PlaceC');" height="16" width="16"></td>
+  </tr>
+
+  <tr onclick="selectRestaurate('Platina Bar'); location.assign('ecra_personalizacao_restauracao.html')">
+    <td> <div id= "Roulote3">Platina Bar</div> <div id= "hora3">Fila:5m</div></td>
+    <td> <img id="cross3" src="ticket.png"  onload="this.onload=this.src=sessionStorage.getItem('Platina BarC');" height="16" width="16"></td>
+  </tr>
+
+  <tr >
+    <td> <div id="ultimo"></div> <div id="ultimo"></div> </td>
+  </tr>
+</table>
+
+</div>
+
+
+
+</body>
+</html>

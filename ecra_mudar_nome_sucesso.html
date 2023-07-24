@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<style>
+
+	@font-face {
+    font-family: AndroidFont;
+    src: url(droid-sans.regular.ttf);
+	}
+
+  body{
+    margin: 0;
+    margin-top: 0;
+  }
+
+  #botao{
+    width:30px;
+    height:18px;
+    border:0.7px solid black;
+    font-size: 14px;
+    margin-top: 3px;
+
+  }
+
+  #texto {
+    margin: 0px;
+    padding-top: 3px;
+    font-size: 12px;
+    font-family: AndroidFont;
+    padding-bottom: 3px;
+  }
+
+   #text {
+    margin: 0px;
+    padding-top: 0px;
+    font-size: 12px;
+    font-family: AndroidFont;
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+</style>
+
+<script>
+  function alert() {
+    setTimeout(anterior, 2500);
+  }  
+
+  function anterior() {
+    history.back();
+  }
+</script>
+
+</head>
+
+<body onload="alert()">
+
+<div id="texto" align="center">
+  <img src="success.png" height="40" width="40">
+  <p id="text">Nome alterado </p>
+  <p id="text">com sucesso! </p>
+  <div id="botao" align="center" onclick="anterior()"> OK </div>
+</div>
+
+</body>
+</html>

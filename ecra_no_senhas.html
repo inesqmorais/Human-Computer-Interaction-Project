@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<link rel="stylesheet" href="time.css">
+<script src="time.js"></script>
+<script src="funcoes.js"></script>
+
+<style>
+
+	@font-face {
+    	font-family: AndroidFont;
+    	src: url(droid-sans.regular.ttf);
+	}
+
+  body{
+      margin: 0;
+      margin-top: 0;
+      background-color: lightgrey;
+  }
+
+  #texto {
+    margin: 0px;
+    padding-top: 14px;
+    font-size: 12px;
+    font-family: AndroidFont;
+  }
+</style>
+
+</head>
+
+<body onload="startTime(); update(); addSenha(); senhaFlag('ecra_no_senhas'); senhaAlert();">
+
+<h1 style="height:17px; width:109px;">
+<span class="left">Senhas</span><span class="right" id="titulo"></span>​
+</h1>
+
+<div id="texto" align="center">
+  <p id="texto">Ainda não pediu <br> nenhuma senha.</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<link rel="stylesheet" href="time.css">
+<script src="time.js"></script>
+<script src="funcoes.js"></script>
+
+<style>
+
+  @font-face {
+      font-family: AndroidFont;
+      src: url(droid-sans.regular.ttf);
+  }
+
+  body{
+      margin: 0;
+      margin-top: 0;
+  }
+
+   html {  overflow-x: hidden; }
+
+
+  /* width */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+  h2{
+    font-size: 15px;
+    font-family:AndroidFont;
+    padding-left: 15px;
+  }
+
+  .scrollable {
+    height: 100px; /* or any value */
+    overflow-y: auto;
+    overflow-x: auto;
+  }
+
+  #messagesList {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 60px; 
+    width:135px;
+  }
+
+  #message{
+    padding-top:5px; 
+    font-size: 11px;
+    padding-left: 9.5px;
+    font-family:AndroidFont;
+    padding-bottom: 20px;
+    line-height: 21px;
+    /*text-align: center;*/
+
+    background-image: url("chatBox.png"); 
+
+    height: 6px;
+    width: 106px;   
+    margin:4px;
+  }
+
+  #save {
+    margin: 0px;
+    padding-bottom: 3px;
+    padding-top: 4px;
+    font-size: 13px;
+
+    font-family:AndroidFont;
+    color:black;
+    position: absolute;
+    bottom:0px;
+    border: 2px solid rgb(74, 76, 79);
+    background-color: lightgrey;
+  }
+
+  h1{
+    font-size: 13px;
+  }
+
+  
+
+</style>
+
+<script>
+
+function titulo() {
+  document.getElementById("nameTitle").innerHTML = JSON.parse(localStorage.getItem("selectedName"));
+}
+
+
+function chatMessages(name) {
+
+  var arrayName = name + "Chat";
+
+  var array = JSON.parse(localStorage.getItem(arrayName)); 
+  //console.log(array);
+  var contador = JSON.parse(sessionStorage.messagesCont);
+
+  var contador2 = 0;
+
+  for(let i = 0; i < contador; i++) {
+    console.log(i);
+    if(array[i] != undefined) {
+        console.log('entra');
+        contador2++;
+        
+    }
+  }
+
+  if(contador2 == 0) {
+      location.replace('ecra_no_chat.html');
+    }
+
+  else {
+    for(let i = 0; i < contador; i++) {
+      console.log(i);
+      if(array[i] != undefined) {
+          console.log('entra');
+          var div = document.createElement("div");
+          var t = document.createTextNode(array[i]);
+          div.appendChild(t);
+          div.id = "message";
+    
+        var v = document.getElementById("messagesList");
+        v.appendChild(div);
+        v.scrollTop = v.scrollHeight;
+      }
+    }
+  }
+}
+
+
+
+
+
+</script>
+
+</head>
+
+<body onload="titulo(); chatMessages(JSON.parse(localStorage.getItem('selectedName'))); ">
+
+<h1 align="center" id="nameTitle" style="height:19px; width:109px;">
+</h1>
+
+
+<div style="height:68px; width:119px;" id = "messagesList">
+</div>
+
+<div id="save" align="center" style="height:18px; width:113px;"onclick="location.assign('ecra_mensagens_predifinidas.html');" align="center"> <b>Enviar Mensagem </b></div>
+
+</body>
+</html>

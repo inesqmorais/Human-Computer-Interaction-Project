@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<link rel="stylesheet" href="time.css">
+<script src="time.js"></script>
+<script src="funcoes.js"></script>
+
+<style>
+
+	@font-face {
+    	font-family: AndroidFont;
+    	src: url(droid-sans.regular.ttf);
+	}
+
+  body{
+    margin: 0;
+    margin-top: 0;
+  }
+
+  #arrow {
+    padding-left: 10px; 
+    padding-right: 24px;
+    font-size: 13px;
+    padding-top: 4px;
+    padding-bottom: 6px;
+    font-family:AndroidFont;
+    font-weight: bold;
+    /*border-bottom: 0.7px solid grey;*/
+  }
+
+  #texto {
+    padding-left: 24px;
+    font-size: 13px;
+    padding-top: 4px;
+    padding-bottom: 6px;
+    font-family:AndroidFont;
+    font-weight: bold;
+    /*border-bottom: 0.7px solid grey;*/
+  }
+
+
+
+  #arrow1 {
+    padding-left: 11px;
+    font-size: 11px;
+    padding-top: 0px;
+    padding-bottom: 1px;
+    font-family:AndroidFont;
+    /*border-bottom: 0.7px solid grey;*/
+  }
+
+  #texto1 {
+    padding-left: 3px;
+    font-size: 11px;
+    padding-top: 0px;
+    padding-bottom: 1px;
+    font-family:AndroidFont;
+    /*border-bottom: 0.7px solid grey;*/
+  }
+
+  #arrow2 {
+    padding-left: 11px;
+    font-size: 11px;
+    padding-top: 4px;
+    padding-bottom: 1px;
+    font-family:AndroidFont;
+    /*border-bottom: 0.7px solid grey;*/
+  }
+
+  #texto2 {
+    padding-left: 14px;
+    font-size: 11px;
+    padding-top: 4px;
+    padding-bottom: 1px;
+    font-family:AndroidFont;
+    /*border-bottom: 0.7px solid grey;*/
+  }
+
+
+  #arrow3 {
+    padding-left: 11px;
+    font-size: 11px;
+    padding-top: 4px;
+    padding-bottom: 1px;
+    font-family:AndroidFont;
+    /*border-bottom: 0.7px solid grey;*/
+  }
+
+  #texto3 {
+    padding-left: 27px;
+    font-size: 11px;
+    padding-top: 4px;
+    padding-bottom: 1px;
+    font-family:AndroidFont;
+    /*border-bottom: 0.7px solid grey;*/
+  }
+
+
+  #arrow4 {
+    padding-left: 11px;
+    font-size: 11px;
+    padding-top: 4px;
+    padding-bottom: 1px;
+    font-family:AndroidFont;
+    /*border-bottom: 0.7px solid grey;*/
+  }
+
+  #texto4 {
+    padding-left: 29px;
+    font-size: 11px;
+    padding-top: 4px;
+    padding-bottom: 1px;
+    font-family:AndroidFont;
+    /*border-bottom: 0.7px solid grey;*/
+  }
+
+
+   #texto5 {
+    padding-left: 25px;
+    font-size: 11px;
+    padding-top: 4px;
+    padding-bottom: 1px;
+    font-family:AndroidFont;
+    /*border-bottom: 0.7px solid grey;*/
+  }
+
+
+  #texto6 {
+    padding-left: 13px;
+    font-size: 11px;
+    padding-top: 4px;
+    padding-bottom: 1px;
+    font-family:AndroidFont;
+    /*border-bottom: 0.7px solid grey;*/
+  }
+
+
+  /* width */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+
+  html { overflow-y: hidden; overflow-x: hidden;  }
+
+   table  {
+        font-size: 12px;
+        margin-left:auto;
+        margin-right:auto;
+
+        overflow-y:scroll;
+        overflow-x: hidden;
+        height:95px;
+
+        align:middle;
+        display:block;
+
+        border-collapse: collapse;
+
+        position: absolute;
+        top: 22px;
+        left:0px;
+      }
+
+      tr { border: none; }
+
+      /*td {
+        border-right: solid 1px grey; 
+        border-left: solid 1px grey;
+      }*/
+
+      
+      td:nth-child(2) {
+        align:right;
+        /*padding-left: 20px;
+        padding right: 10px;*/
+      }​
+
+      td:nth-child(1) {
+        align:right;
+        text-align: right;
+       /* padding-right: 20px;*/
+      }​
+
+
+</style>
+
+<script>
+function title() {
+  document.getElementById("nameTitle").innerHTML = localStorage.getItem('rouloteName');
+}
+
+</script>
+
+</head>
+
+<body onload="">
+
+<h1 align="center" id="nameTitle" style="height:19px; width:109px;">Eat it</h1>
+
+
+
+
+<table  height="110px" width="120px" id= "menuFestival">
+
+  <tr>
+    <td id= "texto">Menu</td>
+    <td id= "arrow">Preço </td>
+  </tr>
+
+  <tr>
+    <td id= "texto1">Hamburger</td>
+    <td id= "arrow1">6,10€</td>
+  </tr>
+
+  <tr>
+    <td id= "texto2">Cachorro</td>
+    <td id= "arrow2">5,90€</td>
+  </tr>
+
+  <tr>
+    <td id= "texto3">Bifana</td>
+    <td id= "arrow3">4,00€</td>
+  </tr>
+
+
+  <tr>
+    <td id= "texto4">Prego</td>
+    <td id= "arrow4">3,90€</td>
+  </tr>
+
+
+  <tr>
+    <td id= "texto5">Febras</td>
+    <td id= "arrow4">3,85€</td>
+  </tr>
+
+  <tr>
+    <td id= "texto6">Espetada</td>
+    <td id= "arrow4">3,65€</td>
+  </tr>
+
+</table>
+
+</body>
+</html>

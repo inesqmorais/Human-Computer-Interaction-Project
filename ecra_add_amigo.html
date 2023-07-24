@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<link rel="stylesheet" href="time.css">
+<script src="time.js"></script>
+<script src="funcoes.js"></script>
+
+<style>
+
+  @font-face {
+      font-family: AndroidFont;
+      src: url(droid-sans.regular.ttf);
+  }
+
+  body{
+    margin: 0;
+    margin-top: 0;
+  }
+
+  html { overflow-y: hidden; overflow-x: hidden;  }
+
+  #direita {
+    position: absolute;
+    top: 32px;
+    left: 85px;
+  }
+
+  #esquerda {
+    position: absolute;
+    top: 32px;
+    right: 86px;
+  }
+
+  #texto1 {
+    font-size: 12px;
+    font-family:AndroidFont;
+    font-weight: bold;
+    position: absolute;
+    top: 35px;
+    left: 37px;
+  }
+
+  #texto2 {
+    font-size: 12px;
+    font-family:AndroidFont;
+    font-weight: bold;
+    position: absolute;
+    top: 47px;
+    left: 42px;
+  }
+
+  #texto3 {
+    font-size: 12px;
+    font-family:AndroidFont;
+    font-weight: bold;
+    position: absolute;
+    top: 59px;
+    left: 37px;
+  }
+
+  #texto4 {
+    font-size: 12px;
+    font-weight: bold;
+    font-family:AndroidFont;
+    position: absolute;
+    top: 71px;
+    left: 40px;
+  }
+
+
+  #texto5 {
+    font-size: 12px;
+    font-weight: bold;
+    font-family:AndroidFont;
+    position: absolute;
+    top: 83px;
+    left: 42px;
+  }
+
+</style>
+
+<script>
+  function alert() {
+    setTimeout(anterior, 2500);
+  }  
+
+  function anterior() {
+    location.replace('ecra_add_amigo_confirmacao.html');
+  }
+
+  function isFull() {
+
+    var namesArray = JSON.parse(sessionStorage.namesArray);
+    var contador = JSON.parse(sessionStorage.namesArrayCont);
+    //console.log(contador);
+    if(contador == 7) {
+      location.assign("ecra_numero_maximo_amigos.html");
+    }
+
+    else
+      alert();
+  }
+</script>
+
+</head>
+
+<body onload="startTime(); isFull();">
+
+<h1 style="height:17px; width:109px;">
+<span class="left">Adicionar</span><span class="right" id="titulo"></span>​
+</h1>
+
+<div>
+  <img id="esquerda" height="100" width="90" src="wifi2.png">
+  <span id="texto1"> Encoste </span>
+  <span id="texto2"> o seu  </span>
+  <span id="texto3"> iRave ao</span>
+  <span id="texto4"> do seu </span>
+  <span id="texto5"> amigo </span>
+  <img id="direita" height="100" width="90" src="wifi.png">
+</div>
+
+</body>
+</html>

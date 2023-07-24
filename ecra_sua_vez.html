@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<script src="funcoes.js"></script>
+
+<style>
+
+  @font-face {
+      font-family: AndroidFont;
+      src: url(droid-sans.regular.ttf);
+  }
+
+  body{
+      margin: 0;
+      margin-top: 0;
+  }
+
+   html { overflow-y: hidden; overflow-x: hidden; }
+
+  ::-webkit-scrollbar { 
+    display: none; 
+  }
+
+  #botao{
+    width:30px;
+    height:18px;
+    border:0.7px solid black;
+    font-size: 14px;
+    font-family: AndroidFont;
+    position:absolute;
+
+    bottom:3px;
+    right:43px;
+
+  }
+   #imagem{
+    margin: 0px;
+   }
+
+  #texto {
+    margin: 0px;
+    padding-top: 0px;
+    font-size: 12px;
+    font-family: AndroidFont;
+    padding-bottom: 6px;
+  }
+
+  #texto1 {
+    margin: 0px;    
+    font-size: 12px;
+    font-family: AndroidFont;
+    padding-bottom: 0px;
+  }
+
+  #texto2 {
+    margin: 0px;    
+    font-size: 12px;
+    font-family: AndroidFont;
+    padding-bottom: 0px;
+  }
+
+    #texto3 {
+    margin: 0px;    
+    font-size: 12px;
+    font-family: AndroidFont;
+    padding-bottom: 10px;
+  }
+
+
+</style>
+
+<script>
+  function alert() {
+    setTimeout(anterior, 3500);
+  }  
+
+  function anterior() {
+    if(localStorage.getItem('senhasFlag') == 'ecra_amigos') {
+      location.replace('ecra_amigos.html');
+    }
+
+    if(localStorage.getItem('senhasFlag') == 'ecra_bares') {
+      location.replace('ecra_bares.html');
+    }
+
+    if(localStorage.getItem('senhasFlag') == 'ecra_contactos') {
+      location.replace('ecra_contactos.html');
+    }
+
+    if(localStorage.getItem('senhasFlag') == 'ecra_dia_festival') {
+      location.replace('ecra_dia_festival.html');
+    }
+
+    if(localStorage.getItem('senhasFlag') == 'ecra_festival') {
+      location.replace('ecra_festival.html');
+    }
+
+    if(localStorage.getItem('senhasFlag') == 'ecra_mapa') {
+      location.replace('ecra_mapa.html');
+    }
+
+    if(localStorage.getItem('senhasFlag') == 'ecra_no_chat') {
+      location.replace('ecra_no_chat.html');
+    }
+
+    if(localStorage.getItem('senhasFlag') == 'ecra_no_friends') {
+      location.replace('ecra_no_friends.html');
+    }
+
+    if(localStorage.getItem('senhasFlag') == 'ecra_no_notificacoes') {
+      location.replace('ecra_no_notificacoes.html');
+    }
+
+    if(localStorage.getItem('senhasFlag') == 'ecra_no_senhas') {
+      location.replace('ecra_no_senhas.html');
+    }
+
+    if(localStorage.getItem('senhasFlag') == 'ecra_notificacoes') {
+      location.replace('ecra_notificacoes.html');
+    }
+
+    if(localStorage.getItem('senhasFlag') == 'ecra_perfil') {
+      location.replace('ecra_perfil.html');
+    }
+
+    if(localStorage.getItem('senhasFlag') == 'ecra_personalizacao') {
+      location.replace('ecra_personalizacao.html');
+    }
+
+    if(localStorage.getItem('senhasFlag') == 'ecra_personalizacao_contacto') {
+      location.replace('ecra_personalizacao_contacto.html');
+    }
+
+    if(localStorage.getItem('senhasFlag') == 'ecra_personalizacao_notificacoes') {
+      location.replace('ecra_personalizacao_notificacoes.html');
+    }
+
+    if(localStorage.getItem('senhasFlag') == 'ecra_personalizacao_restauracao') {
+      location.replace('ecra_personalizacao_restauracao.html');
+    }
+
+    if(localStorage.getItem('senhasFlag') == 'ecra_roulotes') {
+      location.replace('ecra_roulotes.html');
+    }
+
+    if(localStorage.getItem('senhasFlag') == 'ecra_senhas') {
+      noSenhas3();
+    }
+
+    if(localStorage.getItem('senhasFlag') == 'ecra_menu_restauracao') {
+      location.replace('ecra_menu_restauracao.html');
+    }
+
+    if(localStorage.getItem('senhasFlag') == 'menu') {
+      location.replace('menu.html');
+    }
+  }
+
+  function rouloteName() {
+    document.getElementById('texto3').innerHTML += localStorage.getItem("alertaSenha");
+  }
+
+</script>
+
+</head>
+
+<body onload="rouloteName();">
+
+<div id="texto" align="center">
+  <img id="imagem" src="info.png" height="44" width="44">
+  <p id="texto1">Chegou a sua</p>
+  <p id="texto2"> vez na roulote </p>
+  <p id="texto3"> </p>
+
+  <div id="botao" onclick="anterior()"> OK </button>
+</div>
+
+<!--<div id="botao" align="center" onclick="anterior()"> OK </button>-->
+
+</body>
+</html>

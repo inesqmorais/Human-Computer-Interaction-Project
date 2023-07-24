@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<link rel="stylesheet" href="time.css">
+<script src="time.js"></script>
+<script src="funcoes.js"></script>
+
+<style>
+
+  @font-face {
+    font-family: AndroidFont;
+    src: url(droid-sans.regular.ttf);
+  }
+
+  body{
+    margin: 0;
+    margin-top: 0;
+  }
+
+  #texto {
+    font-size: 12px;
+    font-family:AndroidFont;
+    padding-top: 0px;
+  }
+
+  #botao1{
+    width:32px;
+    height:18px;
+    border:0.7px solid black;
+    font-size: 13px;
+    font-family:AndroidFont;
+    /*font-weight: bold;*/
+    margin:2px;
+    display: inline-block;
+    padding-bottom: -5px;
+
+  }
+
+  #botao2{
+    width:32px;
+    height:18px;
+    border:0.7px solid black;
+    font-size: 13px;
+    font-family:AndroidFont;
+    /*font-weight: bold;*/
+    padding-bottom: -5px;
+    margin: 2px;
+
+    display: inline-block;
+  }
+
+  #button {
+    padding-top: 3px;
+  }
+
+  #merda{
+    margin: 0px;
+    padding-top: 3px;
+  }
+
+  ::-webkit-scrollbar { 
+      display: none; 
+  }
+
+  p{
+    margin:0px;
+  }
+
+
+  html { overflow-y: hidden; overflow-x: hidden;  }
+
+
+</style>
+
+<script>
+
+  function getPessoa() {
+    friendsData = JSON.parse(localStorage.getItem("AllFriendsData"));
+    var contador = JSON.parse(sessionStorage.namesCont);
+
+    selectFriendName(friendsData[contador].name);
+    document.getElementById("name").innerHTML = friendsData[contador].name;
+    contador++;
+    sessionStorage.setItem("namesCont", JSON.stringify(contador));
+
+
+  }
+
+
+  function changePage(link) {
+    location.replace(link);
+  }
+</script>
+
+</head>
+
+<body onload=" getPessoa();">    <!--meter a funcao que vai buscar nomes ah BD-->
+
+
+<div id="merda" align="center">
+<img src="question.png" height="40" width="40">
+<div id="texto" align="center">
+  <span id="name"></span> <p> encontrado(a). </p> 
+</div>
+
+<div id="texto" align="center">
+  Deseja adicionar?
+</div>
+
+<div id="button" align="center">
+  <div id="botao1" onclick="changePage('ecra_add_amigo_sucesso.html'); pushName(getFriendName());"> Sim </div>  <div id="botao2" onclick="changePage('ecra_add_amigo.html')"> Não </div>
+</div>
+</div>
+
+<!--<div id="texto" align="center">
+  <img src="question.png" height="40" width="40">
+  <p id="name"> encontrado(a). </p>
+  <p id="texto">Deseja adicionar?</p>
+  <div id="botao1" onclick="changePage('ecra_add_amigo_sucesso.html'); pushName(getFriendName());"> Sim </div>  <div id="botao2" onclick="changePage('ecra_add_amigo.html')"> Não </div>
+</div>-->
+
+
+</body>
+</html>

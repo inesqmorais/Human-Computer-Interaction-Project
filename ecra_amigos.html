@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<link rel="stylesheet" href="time.css">
+<script src="time.js"></script>
+<script src="funcoes.js"></script>
+
+<style>
+
+  @font-face {
+      font-family: AndroidFont;
+      src: url(droid-sans.regular.ttf);
+  }
+
+  body{
+    margin: 0;
+    margin-top: 0;
+  }
+
+  #arrow {
+    border-bottom: 0.7px solid grey;
+  }
+
+  #texto {
+    padding-left: 10px;
+    font-size: 13px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-family:AndroidFont;
+    border-bottom: 0.7px solid grey;
+  }
+
+
+  html {overflow-y: hidden;  overflow-x: hidden; }
+
+
+  /* width */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+   table  {
+        font-size: 12px;
+        margin-left:auto;
+        margin-right:auto;
+
+        overflow-y:scroll;
+        overflow-x: hidden;
+        height:96px;
+
+        align:middle;
+        display:block;
+
+        border-collapse: collapse;
+
+        position: absolute;
+        top: 20px;
+        left:8px;
+      }
+
+      
+      td:nth-child(2) {
+        align:right;
+        padding-left: 11px;
+      }​
+
+      td:nth-child(1) {
+        align:right;
+        padding-right: 20px;
+      }​
+
+
+</style>
+
+</head>
+
+<body onload="startTime(); update(); senhaFlag('ecra_amigos'); addSenha(); senhaAlert();">
+
+<h1 style="height:17px; width:109px;">
+<span class="left">Amigos</span><span class="right" id="titulo"></span>​
+</h1>
+
+
+<table height="130px" width="110px" id= "menuFestival">
+
+  <tr onclick="location.assign('ecra_perfil.html')">
+    <td id= "texto">Perfil</td>
+    <td id= "arrow"><img src="arrow.png" height="8" width="8"></td>
+  </tr>
+
+  <tr onclick="location.assign('ecra_mensagens.html')">
+    <td id= "texto">Contactos</td>
+    <td id= "arrow"><img src="arrow.png" height="8" width="8"></td>
+  </tr>
+
+  <tr onclick="location.assign('ecra_contactos.html')">
+    <td id= "texto">Mensagens</td>
+    <td id= "arrow"><img src="arrow.png" height="8" width="8"></td>
+  </tr>
+
+  <tr onclick="location.assign('ecra_add_amigo.html')">
+    <td id= "texto">Adicionar</td>
+    <td id= "arrow"><img src="arrow.png" height="8" width="8"></td>
+  </tr>
+
+</table>
+
+</body>
+</html>

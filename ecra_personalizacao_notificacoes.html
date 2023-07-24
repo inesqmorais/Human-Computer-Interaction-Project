@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<link rel="stylesheet" href="time.css">
+<script src="time.js"></script>
+<script src="data.js"></script>
+<script src="funcoes.js"></script>
+
+<style>
+ 
+  @font-face {
+	  font-family: AndroidFont;
+	  src: url(droid-sans.regular.ttf);
+  }
+
+  body{
+      margin: 0;
+      margin-top: 0;
+      background-color: white;
+  }
+
+  h2 {
+    margin: 0px;
+    padding-top: 5px;
+    padding-bottom: 0px;
+    font-size: 12px;
+    font-family:AndroidFont;
+    color:black;
+  }
+
+  h3 {
+    height:4px;
+    padding-top: 5px;
+    padding-bottom: 12px;
+    font-size: 14px;
+    margin: 0px;
+    font-family:AndroidFont;
+  }
+
+  #save {
+    width:30px;
+    height:18px;
+    border:0.7px solid black;
+    font-size: 14px;
+    position:absolute;
+    font-family: AndroidFont;
+    right:45px;
+  }
+
+  #atuacao{
+    margin:0px; 
+    font-weight: bold;
+    font-family:AndroidFont;
+    font-size: 14px;
+    color:grey;
+  }
+
+  #banda{
+    padding-top: 2px;
+
+  }
+
+  #texto {
+    margin-top: 5px;
+  }
+
+  #Bandtitle{
+    font-size: 13px;
+  }
+
+</style>
+
+<script>
+  var notificar = ["05 min", "10 min", "30 min", "60 min"];
+  var index;
+  
+  if (localStorage.getItem(getBandPersonalize()) == null) {
+    index = 0;
+  }
+  else {
+    index = localStorage.getItem(getBandPersonalize());
+  }
+
+  function getTime() {
+    document.getElementById("atuacao").innerHTML = notificar[index];
+  }
+
+  function changeColor() {
+    document.getElementById("atuacao").style.color = 'black';
+  }   
+
+  function fowardTime() {
+    if (index != 3)
+      index++;
+    else
+      index = 0;
+  }
+
+  function backwardTime() {
+    if (index != 0)
+      index--;
+    else
+      index = 3;
+  }
+
+  function save() {
+    localStorage.setItem(getBandPersonalize(),index);
+  }
+
+  function anterior() {
+    history.back();
+  }
+
+</script>
+
+
+</head>
+
+<body onload=" getTime(); notificationTittle(getBandPersonalize()); addSenha(); senhaFlag('ecra_personalizacao_notificacoes'); senhaAlert();">
+
+<h1 id="Bandtitle" align="center" style="height:19px; width:109px;">
+</h1>
+
+<div id="body" class="scrollable">
+
+<h2 id="texto" align="center"> Antecedência do lembrete:</h2>
+
+<div align="center" style="height:25px; width:113px;">
+
+  <img id="inverted" src="arrow1.png" height="10" width="10" onclick="backwardTime(); getTime(); changeColor();">
+
+  <texto id="atuacao"> </texto>
+
+  <img src="arrow2.png" height="10" width="10" onclick="fowardTime(); getTime(); changeColor();">
+
+</div>
+
+<div id="save" align="center" onclick="location.assign('ecra_confirmacao_alteracao.html');save(); anterior();"> OK </div>
+
+</div>
+
+</body>
+</html>

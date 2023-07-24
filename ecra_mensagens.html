@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<link rel="stylesheet" href="time.css">
+<script src="time.js"></script>
+<script src="funcoes.js"></script>
+
+<style>
+
+  @font-face {
+      font-family: AndroidFont;
+      src: url(droid-sans.regular.ttf);
+  }
+
+  body{
+      margin: 0;
+      margin-top: 0;
+  }
+
+  html {  overflow-x: hidden; }
+
+
+  /* width */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+  h2{
+    font-size: 15px;
+    font-family:AndroidFont;
+    padding-left: 15px;
+  }
+
+  .scrollable {
+    height: 100px; /* or any value */
+    overflow-y: auto;
+    overflow-x: auto;
+  }
+
+  #friendsList {
+    overflow-y:auto;
+    overflow-x: hidden;
+    height:100px; 
+    width:135px;
+    /*padding-left: 0px;*/
+  }
+
+  #friend {
+    margin-top: 10px;
+    margin-bottom: 3px;
+    display:inline-block;
+  }
+
+
+
+
+  #Manuel {
+    padding-left: 19px;
+  }
+
+  #Maria {
+    padding-left: 31px;    
+  }
+
+  #Pedro {
+    padding-left: 30px;
+  }
+
+  #Joana {
+    padding-left: 33px;
+  }
+  
+  #Ana {
+    padding-left: 44px;
+  }
+
+  #Sofia {
+    padding-left: 37px;
+  }
+
+  #Filipe {
+    padding-left: 34px;
+  }
+
+  
+
+</style>
+
+</head>
+
+<body onload="startTime(); displayFriendsMessageList();">
+
+<h1 style="height:17px; width:109px;">
+<span class="left">Contactos</span><span class="right" id="titulo"></span>​
+</h1>
+
+
+<div style="height:97px; width:119px;" id = "friendsList">
+
+</div>
+
+
+</body>
+</html>

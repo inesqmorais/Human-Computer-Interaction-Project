@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<script src="time.js"></script>
+<script src="funcoes.js"></script>
+<link rel="stylesheet" href="time.css">
+
+<style>
+
+  @font-face {
+      font-family: AndroidFont;
+      src: url(droid-sans.regular.ttf);
+  }
+
+  body{
+    margin: 0;
+    margin-top: 0;
+  }
+
+  #arrow {
+    border-bottom: 0.7px solid grey;
+  }
+
+  #texto {
+    padding-left: 10px;
+    padding-right: 15px;
+    font-size: 13px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-family:AndroidFont;
+    border-bottom: 0.7px solid grey;
+  }
+
+  #texto1 {
+    
+    padding-right: 0px;
+    font-size: 13px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-family:AndroidFont;
+  }
+
+
+   #letra {
+    padding-left: 10px;
+    padding-right: 35px;
+    font-size: 13px;
+    padding-top: 6px;
+    padding-bottom: 8px;
+    font-family:AndroidFont;
+    border-bottom: 0.7px solid grey;
+  }
+
+
+  #txt {
+    margin: 0px;
+  }
+
+  h1{
+    font-size: 13px;
+  }
+
+   html {overflow-y: hidden;  overflow-x: hidden; }
+
+
+  /* width */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+   table  {
+        font-size: 12px;
+        margin-left:auto;
+        margin-right:auto;
+
+        overflow-y:scroll;
+        overflow-x: hidden;
+        height:93px;
+
+        align:middle;
+        display:block;
+
+        border-collapse: collapse;
+
+        position: absolute;
+        top: 22px;
+        left:8px;
+      }
+
+      td:nth-child(2) {
+        align:right;
+        padding-left: 5px;
+      }​
+
+      td:nth-child(1) {
+        align:right;
+        padding-right: 0px;
+      }​
+
+</style>
+
+<script>
+
+function senhaTitle() {
+  document.getElementById("nameTitle").innerHTML = localStorage.getItem('rouloteName');
+  //console.log(localStorage.getItem(localStorage.getItem('rouloteName')));
+  if (localStorage.getItem(localStorage.getItem('rouloteName')) == null) {
+  	document.getElementById("texto1").innerHTML = "Pedir";
+  	//document.getElementById("number").innerHTML = "Estado do Pedido: Sem senha ";
+  }
+
+  else {
+  	document.getElementById("texto1").innerHTML = "Remover";
+  	//document.getElementById("number").innerHTML =" Estado do Pedido: Senha nº" + localStorage.getItem(localStorage.getItem('rouloteName'));
+  }
+}
+
+
+function title() {
+  document.getElementById("nameTitle").innerHTML = localStorage.getItem('rouloteName');
+}
+
+
+function mudar() {
+  if (localStorage.getItem(localStorage.getItem('rouloteName')) == null) {
+  	pushRestaurante(localStorage.getItem('rouloteName'));
+  	location.assign('ecra_numero_senha.html');
+  }
+  else
+    selectRestaurantScreen(sessionStorage.getItem(localStorage.getItem('rouloteName')+ 'C'));
+  	//selectRestaurantScreen(sessionStorage.getItem(localStorage.getItem('rouloteName')+ 'C'));
+}
+
+</script>
+</head>
+
+<body onload="title(); senhaTitle(); addSenha(); senhaFlag('ecra_personalizacao_restauracao'); senhaAlert();">
+
+<h1 align="center" id="nameTitle" style="height:19px; width:109px;">
+ ​
+</h1>
+
+<table height="130px" width="110px" id= "menuFestival">
+
+  <tr>
+    <td onclick="location.assign('ecra_menu_' + localStorage.getItem('rouloteName') + '.html')" id = "texto">Ver <p id="txt">Menu</p> </td>
+  </tr>
+
+  <tr onclick="mudar();">
+    <td id="letra"> <span id="texto1"></span> <p id="txt"> Senha </p> </td> 
+  </tr>
+
+  <tr>
+    <td onclick="location.assign('ecra_mapa_restaurantes.html');" id= "texto">Ver <p id="txt"> Localização </p> </td>
+  </tr>
+
+</table>
+
+</body>
+</html>

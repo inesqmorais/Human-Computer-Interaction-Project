@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<script src="time.js"></script>
+
+<meta charset="UTF-8">
+
+<style>
+
+  @font-face {
+      font-family: SamsungFont;
+      src: url(Clock2017R.ttf);
+  }
+
+  @font-face {
+      font-family: AndroidFont;
+      src: url(Clock2017L.ttf);
+  }
+
+  body {
+    background-image: url("New.jpg");
+  }
+
+
+  #titulo {
+
+    color:white;
+    font-size: 33px;
+    align: right;
+    font-family:SamsungFont;
+    padding-top: 6px;
+    padding-left: 2px;
+  }
+
+
+  #data {
+
+    color:white;
+    font-size: 11px;
+    align: right;
+    font-family:AndroidFont;
+    padding-left: 7px;
+    padding-top: 2px;
+  }
+
+
+</style>
+  
+<script>
+
+  function renderTime(){
+    var mydate = new Date();
+    var year = mydate.getYear();
+    if (year < 1000) {
+      year += 1900;
+    }
+
+    var day = mydate.getDay();
+    var month = mydate.getMonth() + 1;
+    var daym = mydate.getDate();
+    var dayarray = new Array("Domingo","Segunda-feira","Terça-feira","Quarta-feira","Quinta-feira", "Sexta-feira", "Sábado");
+    var montharray = new Array("janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro");
+
+    daym = checkTime(daym);
+    month = checkTime(month);
+
+
+    var myDate = " " + daym + "-" + month + "-" + year;
+    document.getElementById('data').innerHTML = myDate;
+  }
+
+  function updateStart() {
+    localStorage.setItem('ecraAnterior', localStorage.getItem('frame'));
+    localStorage.setItem('frame', parse(location.href));
+  }
+
+</script>
+</head>
+
+<body onload="startTime(); renderTime(); updateStart();">
+
+<div id="titulo"> </div>
+
+
+<div id ="data"> </div>
+
+</body>
+</html>
+
+
+
+
+
+

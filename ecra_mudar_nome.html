@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<link rel="stylesheet" href="time.css">
+<script src="time.js"></script>
+<script src="funcoes.js"></script>
+
+<style>
+
+  @font-face {
+      font-family: AndroidFont;
+      src: url(droid-sans.regular.ttf);
+  }
+
+  body{
+    margin: 0;
+    margin-top: 0;
+  }
+
+  h1{
+    font-size: 13px;
+  
+  }
+
+  html {overflow-y: hidden;  overflow-x: hidden; }
+
+  #titulos {
+    padding-top: 10px;
+    padding-left: 10px;
+    font-size: 13.5px;
+    font-family:AndroidFont;
+
+  }
+
+  #line {
+    margin-left: 8px;
+    margin-right: 5px;
+    border-bottom: 1px solid grey;
+    position: absolute;
+    top: 44px;
+
+  }
+
+  #insert {
+    font-size: 12.5px;
+    font-family:AndroidFont;
+    padding-left: 10px;
+  }
+
+  #save {
+    margin: 0px;
+    font-size: 11.5px;
+    color: black;
+    font-family:AndroidFont;
+    border-bottom: : 0.7px solid black;
+    border-top: 0.7px solid black;
+    border-left:0.7px solid black;
+    background-color: lightgrey;
+    padding-bottom: 2px;
+    padding-left: 1px;
+    position: absolute;
+    line-height: 21px;
+    text-align: center;
+    bottom:0px;
+    left: 58px;
+  }
+
+  #cancel {
+    margin: 0px;
+    font-size: 11.5px;
+    color: black;
+    font-family:AndroidFont;
+    border-bottom: : 0.7px solid black;
+    border-top: 0.7px solid black;
+    background-color: lightgrey;
+    padding-bottom: 2px;
+    padding-left: 0px;
+    position: absolute;
+    line-height: 21px;
+    text-align: center;
+    bottom:0px;
+  }
+
+  #letra{
+    font-family:AndroidFont;
+    font-size: 15px;
+    position: absolute;
+    top: 68.4px;
+    left: 49px;
+    padding-bottom: 3px;
+    border-style: solid;
+    border-width: 1px;
+  }
+
+  #right {
+    position: absolute;
+    top: 70px;
+    left: 70px;
+  }
+
+  #left {
+    position: absolute;
+    top: 70px;
+    left: 30px;
+  }
+
+  #add {
+    position: absolute;
+    top: 68.5px;
+    left: 94px;
+  }
+
+  #delete {
+    position: absolute;
+    top: 71px;
+    left: 10px;
+  }
+
+  #add {
+    position: absolute;
+    top: 71px;
+    left: 90px;
+  }
+
+
+
+</style>
+
+<script>
+  var minusculas = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "];
+  var maiusculas = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", " "];
+  var index = 0;
+  var letras = 0;
+  var flag = 0;
+
+  function getLetra() {
+    if (letras == 0 || flag == 1)
+      document.getElementById("letra").innerHTML = maiusculas[index];
+    
+    else
+      document.getElementById("letra").innerHTML = minusculas[index];
+  }
+
+  function foward() {
+    if (index != 26)
+      index++;
+    else
+      index = 0;
+  }
+
+  function backward() {
+    if (index != 0)
+      index--;
+    else
+      index = 26;
+  }
+
+  function add() {
+    if (letras < 10) {
+      document.getElementById("insert").innerHTML += document.getElementById("letra").innerHTML;
+      letras++;
+      flag = 0;
+      if (index == 26)
+        flag = 1;
+      index = 0;
+      getLetra();
+    }
+
+    else
+      location.replace("ecra_max_char.html");
+  }
+
+  function save() {
+    if (letras > 0) {
+      localStorage.setItem("user", document.getElementById("insert").innerHTML);
+      location.replace("ecra_mudar_nome_sucesso.html");
+    }
+  }
+
+  function erase() {
+    if (letras > 0) {
+      var str = document.getElementById("insert").innerHTML;
+      var newstr = str.substring(0, str.length-1);
+      document.getElementById("insert").innerHTML = newstr;
+      flag = 0;
+      if (newstr[newstr.length-1] == " ")
+        flag = 1
+      letras--;
+      getLetra();
+    }
+  }
+
+  function init() {
+  	var str = localStorage.getItem('user');
+  	letras = str.length;
+  	document.getElementById("insert").innerHTML = str;
+  }
+
+  function cancel() {
+  	history.back();
+  }
+
+</script>
+
+</head>
+
+<body onload=" getLetra(); init();">
+
+<h1 align="center" style="height:19px; width:109px;">
+  Alterar nome
+</h1>
+
+<div id="titulos"> Nome: </div>
+
+<div style="height:15px; width: 103px;" id='line'>
+  <span id="insert"> </span>
+</div>
+
+<img id="delete" src="delete.png" height="16" width="18" onclick="erase();">
+<img id="left" src="arrowL.png" height="17" width="17" onclick="backward(); getLetra();">
+<div style="height: 15px; width: 16px;" id="letra" align="center"> </div>
+<img id="right" src="arrowR.png" height="17" width="17" onclick="foward(); getLetra();">
+<img id="add" src="enter.png" height="17" width="17" onclick="add();">
+
+<div id="save"  style="height:18px; width:58px;" onclick="save()"> <b> Guardar </b> </div>
+<div id="cancel" style="height:18px; width:58px;" onclick="cancel()"> <b> Cancelar </b> </div>
+
+</body>
+</html>

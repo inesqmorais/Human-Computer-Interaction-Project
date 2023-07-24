@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<link rel="stylesheet" href="time.css">
+<script src="time.js"></script>
+<script src="funcoes.js"></script>
+
+<style>
+
+	@font-face {
+    	font-family: AndroidFont;
+    	src: url(droid-sans.regular.ttf);
+	}
+
+  body{
+    margin: 0;
+    margin-top: 0;
+  }
+
+  #arrow {
+    border-bottom: 0.7px solid grey;
+  }
+
+  #texto {
+    padding-left: 10px;
+    font-size: 13px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-family:AndroidFont;
+    border-bottom: 0.7px solid grey;
+  }
+
+  ::-webkit-scrollbar { 
+      display: none; 
+  }
+
+
+  html { overflow-y: hidden; overflow-x: hidden;  }
+
+   table  {
+        font-size: 12px;
+        margin-left:auto;
+        margin-right:auto;
+
+        overflow-y:scroll;
+        overflow-x: hidden;
+        height:100px;
+
+        align:middle;
+        display:block;
+
+        border-collapse: collapse;
+
+        position: absolute;
+        top: 20px;
+        left:8px;
+      }
+
+      
+      td:nth-child(2) {
+        align:right;
+        padding-left: 5px;
+      }​
+
+      td:nth-child(1) {
+        align:right;
+        padding-right: 20px;
+      }​
+
+
+</style>
+
+</head>
+
+<body onload="startTime(); update(); addSenha(); senhaFlag('ecra_festival'); senhaAlert();">
+
+<h1 style="height:17px; width:109px;">
+<span class="left">Festival</span><span class="right" id="titulo"></span>​
+</h1>
+
+
+<table  height="130px" width="135px" id= "menuFestival">
+
+  <tr>
+    <td onclick="location.href = 'ecra_mapa.html';" id= "texto">Mapa</td>
+    <td onclick="location.href = 'ecra_mapa.html';" id= "arrow"><img src="arrow.png" height="8" width="8"></td>
+  </tr>
+
+  <tr>
+    <td onclick="location.href = 'ecra_dia_festival.html';" id= "texto">Horários</td>
+    <td onclick="location.href = 'ecra_dia_festival.html';" id= "arrow"><img src="arrow.png" height="8" width="8"></td>
+  </tr>
+
+  <tr>
+    <td  onclick="noNotifications()" id= "texto">Notificações</td>
+    <td onclick="noNotifications()" id= "arrow"><img src="arrow.png" height="8" width="8"></td>
+  </tr>
+
+</table>
+
+</body>
+</html>

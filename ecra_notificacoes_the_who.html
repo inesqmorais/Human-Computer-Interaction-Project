@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<link rel="stylesheet" href="time.css">
+<script src="time.js"></script>
+<script src="data.js"></script>
+<script src="funcoes.js"></script>
+
+<style>
+
+  @font-face {
+      font-family: AndroidFont;
+      src: url(droid-sans.regular.ttf);
+  }
+
+  body{
+      margin: 0;
+      margin-top: 0;
+      background-color: lightgrey;
+  }
+
+  h2 {
+    margin: 0px;
+    padding-top: 5px;
+    padding-bottom: 0px;
+    font-size: 12px;
+    font-family:AndroidFont;
+    color:black;
+  }
+
+  h3{
+    height:4px;
+    padding-top: 4px;
+    padding-bottom: 12px;
+    font-size: 14px;
+    margin: 0px;
+    font-family:AndroidFont;
+  }
+
+  #save {
+    margin: 0px;
+    padding-top: 5px;
+    font-size: 13px;
+    color: white;
+    font-family:AndroidFont;
+    background-color: green;
+    position: absolute;
+    bottom:0px;
+  }
+
+  #atuacao{
+    margin:0px; 
+    font-weight: bold;
+    font-family:AndroidFont;
+    font-size: 14px;
+    color:grey;
+  }
+
+  #banda{
+    padding-top: 2px;
+
+  }
+
+  #texto{
+    padding-top: 2px;
+  }
+
+  #titulo{
+    font-size: 13px;
+  }
+
+</style>
+
+<script>
+
+  var notificar = ["05 min", "10 min", "30 min", "60 min"];
+  var index;
+  
+  if (localStorage.getItem(getBand()) == null) {
+    index = 0;
+  }
+  else {
+    index = localStorage.getItem(getBand());
+  }
+
+  function getTime() {
+    document.getElementById("atuacao").innerHTML = notificar[index];
+  }
+
+  function changeColor() {
+    document.getElementById("atuacao").style.color = 'black';
+  }   
+
+  function fowardTime() {
+    if (index != 3)
+      index++;
+    else
+      index = 0;
+  }
+
+  function backwardTime() {
+    if (index != 0)
+      index--;
+    else
+      index = 3;
+  }
+
+  function save() {
+    var arrayBand = JSON.parse(sessionStorage.arrayBands);
+    if(!arrayBand.includes(getBand())){
+      localStorage.setItem(getBand(),index);
+    }
+  }
+
+</script>
+
+
+</head>
+
+<body onload=" getTime(); notificationTittle(getBand());">
+
+<h1  id="titulo" align="center" style="height:19px;  width:109px;">
+ Notificações </h1>
+
+<div id="body">
+
+<h2 id="texto" align="center"> Antecedência do lembrete:</h2>
+
+
+<h3 id="Bandtitle" align="center" >The Who</h3>
+<div align="center" style="height:25px; width:113px;">
+
+<img id="inverted" src="arrow1.png" height="10" width="10" onclick="backwardTime(); getTime(); changeColor();">
+
+<texto id="atuacao"> </texto>
+
+<img src="arrow2.png" height="10" width="10" onclick="fowardTime(); getTime(); changeColor();">
+
+</div>
+
+<div id="save" align="center" style="height:18px; width:117px;"onclick="save(); saveBand(); push(getBand()); " align="center"> <b> Guardar </b> </div>
+
+</div>
+
+</body>
+</html>

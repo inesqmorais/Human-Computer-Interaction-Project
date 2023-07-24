@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<script src="funcoes.js"></script>
+
+<style>
+
+	@font-face {
+    	font-family: AndroidFont;
+    	src: url(droid-sans.regular.ttf);
+	}
+
+  body{
+      margin: 0;
+      margin-top: 0;
+  }
+
+   ::-webkit-scrollbar { 
+      display: none; 
+  }
+
+  #botao{
+    width:32px;
+    height:18px;
+    border:0.7px solid black;
+    font-size: 13px;
+    font-family:AndroidFont;
+    /*font-weight: bold;*/
+    margin:2.5px;
+    display: inline-block;
+    padding-bottom: -5px;
+  }
+  
+  #cancel {
+    width:32px;
+    height:18px;
+    border:0.7px solid black;
+    font-size: 13px;
+    font-family:AndroidFont;
+    /*font-weight: bold;*/
+    padding-bottom: -5px;
+    margin: 2.5px;
+
+    display: inline-block;
+  }
+
+  #texto {
+    margin: 0px;
+    padding-top: 2px;
+    font-size: 12px;
+    font-family: AndroidFont;
+    padding-bottom: 3px;
+  }
+</style>
+
+<script>
+
+  function anterior() {
+    history.back();
+    history.back();
+  }
+  function anterior2() {
+    history.back();
+  }
+
+</script>
+
+</head>
+
+<body>
+
+<div id="texto" align="center">
+  <img src="question.png" height="40" width="40">
+  <p id="texto">Deseja mesmo remover a sua senha?</p>
+  <div id="botao" onclick="popRestaurante(localStorage.getItem('removeSenha')); noSenhas2(); anterior2();"> Sim </div>
+  <div id="cancel" onclick="anterior2();"> Não </div>
+</div>
+
+
+</body>
+</html>
