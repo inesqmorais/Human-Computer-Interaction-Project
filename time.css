@@ -1,0 +1,19 @@
+h1 {
+    overflow: hidden;
+    margin: 0px;
+    font-size: 12px;
+    font-family: AndroidFont;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 3px;
+    background-color: rgb(60,60,60);
+    color: white;        
+}
+
+.right{
+    float:right;
+}
+
+.left{
+    float:left;
+}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<link rel="stylesheet" href="time.css">
+<script src="time.js"></script>
+<script src="funcoes.js"></script>
+
+<style>
+
+	@font-face {
+    	font-family: AndroidFont;
+    	src: url(droid-sans.regular.ttf);
+	}
+
+    body{
+        margin: 0;
+        margin-top: 0;
+    }
+
+    #festivalId {
+        position: absolute;
+        top: 25px;
+        left: 43px;
+    }
+
+    #titulos {
+    	padding-top: 1px;
+        color: white;
+        font-size: 10px;
+        font-family: AndroidFont;
+    }
+
+    #amigos1 {
+        color: white;
+        font-size: 10px;
+        font-family: AndroidFont;
+        position: absolute;
+        left:12px;
+        top:100px;
+    }
+
+    #amigos2 {
+        color: white;
+        font-size: 10px;
+        font-family: AndroidFont;
+        position: absolute;
+        left:69px;
+        top:100px;
+    }
+
+    #amigosId{
+        position: absolute;
+        top: 72px;
+        left: 13px;    
+    }
+
+    #comerId{
+        position: absolute;
+        top: 73px;
+        right: 8px;
+    }
+
+    html { overflow-y: hidden; }
+
+    #background {
+        background-image: url("images2.jpg");
+    }
+
+</style>
+<script>
+
+
+function addSenha() {
+  var contador = localStorage.getItem('Eat itSenha');
+  contador++;
+  localStorage.setItem('Eat itSenha', contador);
+}
+
+</script>
+
+
+</head>
+
+
+<body onload="startTime(); update(); addSenha(); senhaFlag('menu'); senhaAlert(); ">
+
+<h1 style="height:17px; width:109px;">
+<span class="left">Menu</span><span class="right" id="titulo"></span>​
+</h1>
+
+<div id="background";>
+
+    <div style="width:116px; height: 35px">
+
+        <img id="festivalId" src="rock.png" height="31" width="31" onclick="location.href='ecra_festival.html'" >
+    </div>
+
+    <div id="titulos" style="width:116px; height: 15px" align="center" onclick="location.href='ecra_festival.html'"> Festival </div>
+
+    <div id="amigos" style="height:47px">
+
+        <img id="amigosId" src="friend2.png" height="31" width="31" onclick="location.href='ecra_amigos.html'">
+        <img id="comerId" src="cut.png" height="26" width="31" onclick="location.href='ecra_menu_restauracao.html'">
+
+    	<div id="amigos1" onclick="location.href='ecra_amigos.html'">Amigos </div>  <div id="amigos2" onclick="location.href='ecra_menu_restauracao.html'"> Refeições </div>
+
+    </div>
+
+</div>
+
+
+
+
+</body>
+</html>

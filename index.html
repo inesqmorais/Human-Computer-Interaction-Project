@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+
+<script src="data.js"></script>
+<script src="funcoes.js"></script>
+
+<head>
+
+<meta charset="UTF-8">
+
+<style>
+
+#over{
+	background-image: url("relogio2.png");
+	height: 380px;
+  	width: 400px;
+	
+	position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+}
+
+#iframe {
+	padding-top:107px;
+  padding-left: 110px;
+}
+
+#lockButton {
+	padding-left:6px;
+	padding-top: 28px;
+
+  position: absolute;
+    top:132px;
+    right: 133px;
+
+	background: transparent;
+    border: none !important;
+    font-size:0;
+
+  outline: 0
+}
+
+#homeButton {
+  padding-left: 53px;
+  padding-top: 20px;
+
+  position: absolute;
+    bottom:120px;
+    right: 165px;
+
+  background: transparent;
+    border: none !important;
+    font-size:0;
+
+  outline: 0
+}
+
+#backButton {
+  padding-left:50px;
+  padding-top: 20px;
+
+  position: absolute;
+    bottom:120px;
+    right: 226px;
+
+  background: transparent;
+    border: none !important;
+    font-size:0;
+
+  outline: 0
+}
+
+
+</style>
+
+
+<script>
+	function changeSource(frame) {
+		document.getElementById('newFrame').src = frame;
+  }
+	
+  function lockFunction() {
+    if(localStorage.getItem('frame') == 'ecra_bloqueio_frame.html') {     /*Caso esteja bloqueado*/
+      changeSource("menu.html");
+    } 
+    else  {  /*Caso nao esteja no ecra de bloqueio*/
+      changeSource('ecra_bloqueio_frame.html');
+    }
+  }
+
+  function homeFunction() {
+    if (localStorage.getItem('frame') != 'ecra_bloqueio_frame.html' && localStorage.getItem('frame') != 'menu.html')
+      changeSource('menu.html');
+  }
+
+  function backFunction() {
+
+    
+    if (localStorage.getItem('ecraAnterior') != 'ecra_bloqueio_frame.html' && localStorage.getItem('frame') != 'ecra_bloqueio_frame.html' && localStorage.getItem('frame') != 'menu.html') {
+      history.back(); 
+    }
+  }
+
+</script>
+</head>
+
+<body onload="loadAllFestivalData(getData()); loadAllFestivalData2(getData2()); loadAllFestivalData3(getData3()); saveArray(); saveContador(); saveContador2(); saveContador3(); initHidden(); initAlarm(); loadAllFriendsData(getFriends()); saveNamesCont(); saveNamesArray(); loadMessages(getMessages()); saveNamesArrayCont(); initChatArray();saveMessagesCont(); localStorage.setItem('chatFlag',0); initRestaurantsTickets(); saveRestaurantArray(); saveRestauranteContador(); saveContFilas(); " onunload="clear()">
+
+<div id="over">
+  <div id="iframe"> 
+
+  <iframe id="newFrame" src="ecra_bloqueio_frame.html" height="117px" width="117px" style="border:6px solid black; border-radius: 8px;"></iframe>
+
+	<button id="lockButton" onclick="lockFunction()"></button>
+
+  <button id="homeButton" onclick="homeFunction()"></button>
+
+  <button id="backButton" onclick="backFunction()"></button>
+
+	</div>
+
+
+</div>
+
+</body>
+</html>
